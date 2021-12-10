@@ -13,7 +13,7 @@ class NumberedItem<T> {
     }
 
     public String toString() {
-        return "Index: " + String.valueOf(index) + " Value: " + value;
+        return "Index: " + String.valueOf(index) + " Value: " + String.valueOf(value);
     }
 
 }
