@@ -1,4 +1,5 @@
-/*
+package Uppg1;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -16,4 +17,3 @@ public class NumberedItemTest0 {
 	assertEquals(5, i4.compareTo(i3));
     }
 }
-*/

@@ -1,5 +1,6 @@
-public class ownTest {
+package Uppg1;
 
+public class ownTest {
 
     public static void main(String[] args) {
         NumberedItem<Integer> i1 = new NumberedItem<>(-1,1);
