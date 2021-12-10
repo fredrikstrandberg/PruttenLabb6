@@ -8,8 +8,8 @@ class NumberedItem<T> {
         this.value = t;
     }
 
-    public int compareTo(int i2){
-        return Math.abs(this.index - i2);
+    public int compareTo(NumberedItem<T> obj){
+        return this.index - obj.index;
     }
 
     public String toString() {
