@@ -16,6 +16,7 @@ class NumberedItem<T> {
     }
 
     public boolean equals(NumberedItem<T> obj){
+        if(obj == null) { return false; }
         return this.index == obj.index;
     }
 

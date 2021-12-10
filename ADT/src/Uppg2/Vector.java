@@ -1,61 +1,46 @@
 package Uppg2;
 
 import java.util.List;
+import java.util.TreeMap;
 
 class Vector <E extends Comparable<E>> implements SparseVec<E>{
 
-    @Override
+
+    TreeMap<Integer, E> map = new TreeMap<Integer, E>();
+
+    //ska implementeras av TreeMap eller kombineras i SparseVec:
+    //size(), minIndex(), maxIndex(), removeAt(pos), get(pos), removeElem(elem), add(pos,elem)
+
+    public int size() {return map.size();}
+    public int minIndex() {return 0;}               //inte implementerad
+    public int maxIndex() {return 0;}               //inte implementerad
+    public void removeAt(int pos) {map.remove(pos);}
+    public E get(int pos) {return map.get(pos);}
+    public void removeElem(E elem) {}               //inte implementerad
+    public void add(int pos, E elem) {map.put(pos, elem);}
+
+
+    //behöver implementeras här:
+    //add(elem), indexOf(elem), toString(), toArray(), sortedValues()
     public void add(E elem) {
 
     }
 
-    @Override
-    public void add(int pos, E elem) {
-
-    }
-
-    @Override
     public int indexOf(E elem) {
         return 0;
     }
 
-    @Override
-    public void removeAt(int pos) {
-
-    }
-
-    @Override
-    public void removeElem(E elem) {
-
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
-
-    @Override
-    public int minIndex() {
-        return 0;
-    }
-
-    @Override
-    public int maxIndex() {
-        return 0;
-    }
-
-    @Override
-    public E get(int pos) {
-        return null;
-    }
-
-    @Override
     public Object[] toArray() {
         return new Object[0];
     }
 
-    @Override
     public List<E> sortedValues() {
         return null;
+    }
+
+    public String toString() {
+        return "Vector{" +      //har inte gjort detta, kom automatiskt
+                "map=" + map +
+                '}';
     }
 }

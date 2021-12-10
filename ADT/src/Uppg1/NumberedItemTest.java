@@ -26,9 +26,10 @@ public class NumberedItemTest {
         NumberedItem<Integer> i3 = new NumberedItem<>(7,117);
         NumberedItem<Integer> i4 = new NumberedItem<>(7,4304);
         assertTrue(i1.equals(i2));
-/*        assertTrue(i3.equals(i4));
+        assertTrue(i3.equals(i4));
         assertFalse(i2.equals(i3));
         assertFalse(i2.equals("XYZZY"));
-        assertFalse(i2.equals(null));*/
+        assertFalse(i2.equals(null));
+
     }
 }
