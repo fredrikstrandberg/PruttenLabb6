@@ -26,7 +26,7 @@ class Vector <E extends Comparable<E>> implements SparseVec<E>{
     }
     public void removeAt(int pos) {map.remove(pos);}
     public E get(int pos) {return map.get(pos);}
-    public void removeElem(E elem) {
+    public void removeElem(E elem) { // borde kunna göras om lättare!!
         for(int i=0; i<maxIndex()+1;i++){
             if(map.get(i) == elem){
                 map.remove(i);
