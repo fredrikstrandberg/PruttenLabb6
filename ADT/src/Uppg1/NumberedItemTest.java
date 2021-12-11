@@ -30,6 +30,5 @@ public class NumberedItemTest {
         assertFalse(i2.equals(i3));
         assertFalse(i2.equals("XYZZY"));
         assertFalse(i2.equals(null));
-
     }
 }
