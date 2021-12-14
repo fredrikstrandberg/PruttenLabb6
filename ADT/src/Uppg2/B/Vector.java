@@ -1,39 +1,41 @@
-package Uppg2;
+package Uppg2.B;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-class Vector <E extends Comparable<E>> implements SparseVec<E>{
+class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements SparseVec<E> {
 
-    TreeMap<Integer, E> map = new TreeMap<>();
 
     //ska implementeras av TreeMap eller kombineras i SparseVec:
     //size(), minIndex(), maxIndex(), removeAt(pos), get(pos), removeElem(elem), add(pos,elem)
 
-    public int size() {return map.size();}
+    //public int size() {return size();}
+
     public int minIndex() {
-        if(!map.isEmpty()){
-            return map.firstKey();
+        if(!isEmpty()){
+            return firstKey();
         }
         return -1;
     }
     public int maxIndex() {
-        if(!map.isEmpty()){
-            return map.lastKey();
+        if(!isEmpty()){
+            return lastKey();
         }
         return -1;
     }
-    public void removeAt(int pos) {map.remove(pos);}
-    public E get(int pos) {return map.get(pos);}
+    public void removeAt(int pos) {remove(pos);}
+
+    //public E get(int pos) {return get(pos);}
+
     public void removeElem(E elem) { // borde kunna göras om lättare!!
         for(int i=0; i<maxIndex()+1;i++){
-            if(map.get(i) == elem){
-                map.remove(i);
+            if(get(i) == elem){
+                remove(i);
             }
         }
     }
-    public void add(int pos, E elem) {map.put(pos, elem);}
+    public void add(int pos, E elem) {put(pos, elem);}
 
     //behöver implementeras här:
     //add(elem), indexOf(elem), toString(), toArray(), sortedValues()
@@ -42,12 +44,12 @@ class Vector <E extends Comparable<E>> implements SparseVec<E>{
         while(get(pos) != null){
             pos++;
         }
-        map.put(pos, elem);
+        put(pos, elem);
     }
 
     public int indexOf(E elem) {
         for(int i=0; i<maxIndex()+1;i++){
-            if(map.get(i) == elem){
+            if(get(i) == elem){
                 return i;
             }
         }
@@ -57,22 +59,22 @@ class Vector <E extends Comparable<E>> implements SparseVec<E>{
     public Object[] toArray() {
         Object[] obj = new Object[maxIndex()+1];
         for(int i=0; i<maxIndex()+1;i++){
-            obj[i] = map.get(i);
+            obj[i] = get(i);
         }
         return obj;
     }
 
     public List<E> sortedValues() {
         List<E> list = new ArrayList<>();
-        Object[] keys = map.keySet().toArray();
+        Object[] keys = keySet().toArray();
         for (Object key : keys) {
-            list.add(map.get(key));
+            list.add(get(key));
         }
         return list;
     }
 
     public String toString() {
-        Object[] objects = map.entrySet().toArray();
+        Object[] objects = entrySet().toArray();
         StringBuilder returnString = new StringBuilder();
         for(Object obj : objects){
             returnString.append(obj).append("\n");
