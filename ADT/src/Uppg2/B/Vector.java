@@ -20,8 +20,7 @@ class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements Spa
         System.out.println(testVector.sortedValues());
     }
 
-
-    //public int size() {return size();}
+    //public int size() {return this.size();}
 
     public int minIndex() {
         if(!isEmpty()){
