@@ -1,15 +1,25 @@
 package Uppg2.B;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements SparseVec<E> {
 
+    //I SparseVec-implementationens main-metod, skapa en vektor, lägg in minst fem värden.
+    //Testa toString(), toArray() och sortedValues() genom att anropa dem och skriva ut resultaten.
+    //Använd alltså inte JUnit och assert för dessa tester.
+    public static void main(String[] args) {
+        Vector<String> testVector = new Vector<>();
+        testVector.add(4, "TestElem1");
+        testVector.add(8, "TestElem2");
+        testVector.add("TestElem3");
+        testVector.add("TestElem4");
+        testVector.add(1, "TestElem5");
 
-    //ska implementeras av TreeMap eller kombineras i SparseVec:
-    //size(), minIndex(), maxIndex(), removeAt(pos), get(pos), removeElem(elem), add(pos,elem)
+        System.out.println(testVector);
+        System.out.println(Arrays.toString(testVector.toArray()));
+        System.out.println(testVector.sortedValues());
+    }
+
 
     //public int size() {return size();}
 
@@ -38,8 +48,7 @@ class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements Spa
     }
     public void add(int pos, E elem) {put(pos, elem);}
 
-    //behöver implementeras här:
-    //add(elem), indexOf(elem), toString(), toArray(), sortedValues()
+
     public void add(E elem) {
         int pos = 0;
         while(get(pos) != null){

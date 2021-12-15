@@ -6,8 +6,22 @@ class Vector <E extends Comparable<E>> implements SparseVec<E> {
 
     TreeMap<Integer, E> map = new TreeMap<>();
 
-    //ska implementeras av TreeMap eller kombineras i SparseVec:
-    //size(), minIndex(), maxIndex(), removeAt(pos), get(pos), removeElem(elem), add(pos,elem)
+    //I SparseVec-implementationens main-metod, skapa en vektor, lägg in minst fem värden.
+    //Testa toString(), toArray() och sortedValues() genom att anropa dem och skriva ut resultaten.
+    //Använd alltså inte JUnit och assert för dessa tester.
+    public static void main(String[] args) {
+        Vector<String> testVector = new Vector<>();
+        testVector.add(4, "TestElem1");
+        testVector.add(8, "TestElem2");
+        testVector.add("TestElem3");
+        testVector.add("TestElem4");
+        testVector.add(1, "TestElem5");
+
+        System.out.println(testVector);
+        System.out.println(Arrays.toString(testVector.toArray()));
+        System.out.println(testVector.sortedValues());
+    }
+
 
     public int size() {return map.size();}
     public int minIndex() {
@@ -28,13 +42,11 @@ class Vector <E extends Comparable<E>> implements SparseVec<E> {
         for (Integer key : map.keySet()) {
             if(map.get(key) == elem)
                 map.remove(key);
-                break;
         }
     }
     public void add(int pos, E elem) {map.put(pos, elem);}
 
-    //behöver implementeras här:
-    //add(elem), indexOf(elem), toString(), toArray(), sortedValues()
+
     public void add(E elem) {
         int pos = 0;
         while(get(pos) != null){
@@ -45,6 +57,7 @@ class Vector <E extends Comparable<E>> implements SparseVec<E> {
 
     public int indexOf(E elem) {
         for(Integer key : map.keySet()){
+            System.out.println(elem);
             if(map.get(key) == elem){
                 return key;
             }
