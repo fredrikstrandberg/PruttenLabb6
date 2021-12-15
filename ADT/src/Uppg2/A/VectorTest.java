@@ -2,6 +2,7 @@ package Uppg2.A;
 
 import static org.junit.Assert.*;
 
+import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,91 +23,51 @@ import org.junit.Test;
 
 
 public class VectorTest {
-    Vector<String> startStringMap = new Vector<>();
-    Vector<Boolean> startBoolMap = new Vector<>();
-    Vector<Integer> startIntMap = new Vector<>();
+    Vector<String> emptyVec = new Vector<>();
+    Vector<String> startStringVec = new Vector<>();
+    Vector<Boolean> startBoolVec = new Vector<>();
+    Vector<Integer> startIntVec = new Vector<>();
+
     @Before
-    public void setupMap(){
-        startStringMap.add(1, "Kalle");
-        startStringMap.add(10, "Pelle");
-        startStringMap.add(5, "Anders");
-        startStringMap.add("Per");
-        startStringMap.add("Håkan");
+    public void setupMaps() {
+        startStringVec.add(1, "Kalle");
+        startStringVec.add(10, "Pelle");
+        startStringVec.add(5, "Anders");
+        startStringVec.add("Per");
+        startStringVec.add("Håkan");
 
-        startBoolMap.add(1, true);
-        startBoolMap.add(10, false);
-        startBoolMap.add(5, false);
-        startBoolMap.add(true);
-        startBoolMap.add(false);
+        startBoolVec.add(1, true);
+        startBoolVec.add(10, false);
+        startBoolVec.add(5, false);
+        startBoolVec.add(true);
+        startBoolVec.add(false);
 
-        startIntMap.add(1, 201);
-        startIntMap.add(10, 312);
-        startIntMap.add(5, 1);
-        startIntMap.add(33);
-        startIntMap.add(-10);
+        startIntVec.add(1, 201);
+        startIntVec.add(10, 312);
+        startIntVec.add(5, 1);
+        startIntVec.add(33);
+        startIntVec.add(-10);
     }
 
+    @Test
+    public void testEmptyVec() {
+        assertEquals(0, emptyVec.size());
+        assertEquals(-1, emptyVec.minIndex());
+        assertEquals(-1, emptyVec.maxIndex());
+
+        assertNull(emptyVec.get(100));
+
+        System.out.println(startStringVec);
+        System.out.println(Arrays.toString(emptyVec.toArray()));
+        System.out.println(emptyVec.sortedValues());
+
+    }
 
     @Test
-    public void testAddElemPos() {
-        Vector<String> map = startStringMap;
+    public void testAddRemove() {
+        //test addPos
+        Vector<String> map = startStringVec;
         assertEquals(map.size(), 5);
         assertEquals(map.maxIndex(), 10);
-    }
-    @Test
-    public void testAddElem() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testIndexOf() {
-        Vector<String> map = startStringMap;;
-    }
-    @Test
-    public void testRemoveAt() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testRemoveElem() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testSize() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testMinIndex() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testMaxIndex() {
-        Vector<String> map = startStringMap;
-        assertEquals(map.maxIndex(), -1);   //om vektorn är tom ska -1 returneras
-        map.add(1, "Kalle");
-        map.add(10, "Pelle");
-        map.add(5, "Anders");
-        assertEquals(map.maxIndex(), 10);   //Pelle ligger på maxindex 10
-        map.add("Håkan");
-        map.add("Per");
-        assertEquals(map.maxIndex(), 10);   //de nya borde läggas till på index 0 och 2, däför borde max vara samma
-    }
-    @Test
-    public void testToString() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testGet() {
-        Vector<String> map = startStringMap;
-    }
-    @Test
-    public void testToArray() {
-        Vector<String> map = startStringMap;
-        Object[] objs = map.toArray();
-        for(Object obj : objs){
-            //System.out.println(obj);
-        }
-    }
-    @Test
-    public void testSortedValues() {
-        Vector<String> map = startStringMap;
     }
 }

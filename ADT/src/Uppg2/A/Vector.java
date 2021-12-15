@@ -1,8 +1,6 @@
 package Uppg2.A;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 class Vector <E extends Comparable<E>> implements SparseVec<E> {
 
@@ -26,11 +24,11 @@ class Vector <E extends Comparable<E>> implements SparseVec<E> {
     }
     public void removeAt(int pos) {map.remove(pos);}
     public E get(int pos) {return map.get(pos);}
-    public void removeElem(E elem) { // borde kunna göras om lättare!!
-        for(int i=0; i<maxIndex()+1;i++){
-            if(map.get(i) == elem){
-                map.remove(i);
-            }
+    public void removeElem(E elem) {
+        for (Integer key : map.keySet()) {
+            if(map.get(key) == elem)
+                map.remove(key);
+                break;
         }
     }
     public void add(int pos, E elem) {map.put(pos, elem);}
@@ -46,9 +44,9 @@ class Vector <E extends Comparable<E>> implements SparseVec<E> {
     }
 
     public int indexOf(E elem) {
-        for(int i=0; i<maxIndex()+1;i++){
-            if(map.get(i) == elem){
-                return i;
+        for(Integer key : map.keySet()){
+            if(map.get(key) == elem){
+                return key;
             }
         }
         return -1;
@@ -64,17 +62,16 @@ class Vector <E extends Comparable<E>> implements SparseVec<E> {
 
     public List<E> sortedValues() {
         List<E> list = new ArrayList<>();
-        Object[] keys = map.keySet().toArray();
-        for (Object key : keys) {
+        for (Integer key : map.keySet()) {
             list.add(map.get(key));
         }
+        Collections.sort(list);
         return list;
     }
 
     public String toString() {
-        Object[] objects = map.entrySet().toArray();
         StringBuilder returnString = new StringBuilder();
-        for(Object obj : objects){
+        for(Object obj : map.entrySet()){
             returnString.append(obj).append("\n");
         }
 

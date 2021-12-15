@@ -1,4 +1,4 @@
-package Uppg2.B;
+package Uppg2.A;
 
 public class ownTest {
 
@@ -37,6 +37,8 @@ public class ownTest {
 
         map.removeElem("Håkan");
         System.out.println(map);
+
+
 
     }
 }

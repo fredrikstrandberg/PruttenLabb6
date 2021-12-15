@@ -1,6 +1,7 @@
 package Uppg2.B;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -28,10 +29,10 @@ class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements Spa
 
     //public E get(int pos) {return get(pos);}
 
-    public void removeElem(E elem) { // borde kunna göras om lättare!!
-        for(int i=0; i<maxIndex()+1;i++){
-            if(get(i) == elem){
-                remove(i);
+    public void removeElem(E elem) {
+        for(Integer key : keySet()){
+            if(get(key) == elem){
+                removeAt(key);
             }
         }
     }
@@ -48,9 +49,9 @@ class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements Spa
     }
 
     public int indexOf(E elem) {
-        for(int i=0; i<maxIndex()+1;i++){
-            if(get(i) == elem){
-                return i;
+        for(Integer key : keySet()){
+            if(get(key) == elem){
+                return key;
             }
         }
         return -1;
@@ -66,17 +67,16 @@ class Vector<E extends Comparable<E>> extends TreeMap<Integer, E> implements Spa
 
     public List<E> sortedValues() {
         List<E> list = new ArrayList<>();
-        Object[] keys = keySet().toArray();
-        for (Object key : keys) {
+        for (Integer key : keySet()) {
             list.add(get(key));
         }
+        Collections.sort(list);
         return list;
     }
 
     public String toString() {
-        Object[] objects = entrySet().toArray();
         StringBuilder returnString = new StringBuilder();
-        for(Object obj : objects){
+        for(Object obj : entrySet()){
             returnString.append(obj).append("\n");
         }
 
