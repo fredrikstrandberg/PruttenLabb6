@@ -1,5 +1,7 @@
 package Uppg2.B;
 
+import java.util.Arrays;
+
 public class ownTest {
 
     public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class ownTest {
         map.add(0, "Kalle");
         System.out.println(map);
 
-        System.out.println(map.toArray());
+        System.out.println(Arrays.toString(map.toArray()));
 
         map.add("Pelle");
         map.add("Anders");

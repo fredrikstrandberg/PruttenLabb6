@@ -1,7 +1,5 @@
 package Uppg1;
 
-//extends Comparable ??
-//vet inte om det behövs eftersom vi ska jämföra index som måste vara integers
 class NumberedItem<T> {
     int index;
     T value;

@@ -81,5 +81,4 @@ public class VectorTest {
         assertEquals(2, stringVec.size());
     }
 
-
 }
